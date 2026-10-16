@@ -1,0 +1,179 @@
+GitHub Repository URL: https://github.com/DunyaAli0/assignment2
+
+1. Console output saved at the end of the step 3.C (after pushing status.txt):
+
+Enumerating objects: 9, done.
+
+Counting objects: 100% (9/9), done.
+
+Delta compression using up to 8 threads
+
+Compressing objects: 100% (5/5), done.
+
+Writing objects: 100% (7/7), 842 bytes | 842.00 KiB/s, done.
+
+Total 7 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+
+To https://github.com/DunyaAli0/assignment2.git
+
+   f4975e 5. b518c55 master -> master
+
+2. How many commits have been done to the repository so far?
+
+Command used:
+
+    git rev-list --count HEAD
+
+Answer: 9 commits
+
+3. When was the README.md file modified last?
+
+Command used:
+
+    git log -1 -- README.md
+
+Answer: Thu Oct 15 21:02:00 2026 -0400 (commit f5951aa)
+
+4. Two reasons why branches are used in a Git repository:
+
+   (a) Isolation: developers can work on new features or bug fixes in
+
+       Developers can work on new features or bug fixes in a separate branch without affecting the stable main or master branch.
+
+       branch.
+
+   (b) Parallel development: multiple developers (or one developer on
+
+       multiple features) can work simultaneously on independent
+
+       branches and merge changes when ready, rather than serializing
+
+       their work on a single line.
+
+5. Difference between git log and git status:
+
+git log shows the commit history of the repository—every commit.
+
+   made, along with its hash, author, date, and message.
+
+   git status shows the current state of the working directory and
+
+staging area—which files are modified, staged, or untracked. It
+
+   It does not show the commit history.
+
+6. Command to see the commits where "Vehicle.h" was one of the
+
+   committed files:
+
+    git log -- Vehicle.h
+
+7. Command to see the commits whose commit message contains the word
+
+   "file":
+
+    git log --grep="file"
+
+8. Object-oriented programming concepts (using examples from this
+
+   repository's code):
+
+   (I) Inheritance:
+
+       A mechanism where a new class (subclass) acquires the fields
+
+       and methods of an existing class (superclass), promoting code
+
+       reuse and establishing an "is-a" relationship.
+
+In this repo, Car inherits from PoweredVehicle (class Car):
+
+public PoweredVehicle), and Bicycle inherits from Vehicle
+
+       (class Bicycle : public Vehicle). Both subclasses reuse the
+
+       brand/model accessors defined in Vehicle without redefining
+
+       them.
+
+   (II) Polymorphism:
+
+       The ability of objects of different types to respond to the
+
+       same method call in different ways, typically via virtual
+
+       functions and dynamic dispatch.
+
+In this repo, the vehicle declares the pure virtual method.
+
+"virtual double mileage estimate" (double time) = 0. "Car and
+
+Bicycle each override mileageEstimate() and toString(). When a
+
+       Vehicle* pointer calls mileageEstimate(), the correct subclass
+
+       version is invoked at runtime.
+
+   (III) Encapsulation:
+
+       Bundling data (fields) with the methods that operate on them,
+
+       and restricting direct access to internal state through access
+
+       modifiers, exposing it only via public methods.
+
+In this repo, the vehicle declares "private: string myBrand,
+
+       myModel;" and exposes them only through getBrand(), setBrand(),
+
+       getModel(), setModel(). The car keeps my engine size private; the bicycle
+
+       keeps myGearCount private. External code cannot modify these
+
+       fields directly.
+
+9. Main difference between "Dictator and Lieutenants" and "Integration
+
+   manager" workflows:
+
+In the Integration Manager workflow, there is a single integrator.
+
+   who pulls from developers' public repositories and pushes to the
+
+   blessed repository. In the Dictator and Lieutenants workflow there
+
+   is an additional hierarchical layer: lieutenants each own a
+
+   subsystem and integrate contributions from their group of
+
+   developers, and only the dictator pulls from the lieutenants into
+
+   the final blessed repository. So the dictator workflow inserts
+
+   lieutenants between the developers and the final integrator.
+
+10. How a team of 100 developers benefits from the "Dictator and
+
+Lieutenants' workflow instead of the "Centralized" workflow:
+
+In the centralized workflow, all 100 developers push directly to
+
+    one shared repository. That creates a bottleneck: constant merge.
+
+    conflicts, an unstable main branch, and no clear integration
+
+    responsibility. At that scale it collapses. The Dictator and
+
+Lieutenants' workflow scales because lieutenants each own a
+
+    subsystem, integrate and test contributions from their group
+
+    before passing them up, and only the dictator merges into the
+
+    blessed repository. This distributes the integration load, keeps
+
+The blessed repository is stable and allows parallel workstreams
+
+    without everyone competing for the same main branch.
